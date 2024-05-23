@@ -1,0 +1,1 @@
+$(document).ready((function(){$(".eeee").click((function(){$(".eeee").addClass("actsss"),$(".fadepopup").addClass("actsss"),$(".fadepopup").removeClass("xxxc"),$(".eeee").removeClass("xxxc"),$(".hikj").removeClass("actss"),$("body").removeClass("modal-show")}))}));
