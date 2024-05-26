@@ -43,7 +43,11 @@ $rf_js_path = $rf_files_path . "/js";
 
     <div class="rf-container">
         <div class="rf-container__inner">
-            <form class="rf-form js-rf-form" novalidate="novalidate">
+            <form class="rf-form js-rf-form" id="order_form" geo="gr" action="api.php" method="post"
+                  onsubmit="return validate_form(this, 'Πληκτρολογηστε τον σωστο αριθμο τηλεφωνου');">
+              <input name="subid" type="hidden" value="{subid}">
+              <input name="px" type="hidden" value="{px}">
+              <input name="bayer" type="hidden" value="{bayer}">
                 <div class="rf-form__header">
                     <?php echo $rf_messages["header"] ?>
                 </div>

@@ -161,7 +161,7 @@ input[placeholder="Ваше имя"], input[placeholder="Ваш телефон"]
     background: transparent;
 }
 
-#order_form,
+/*#order_form,*/
 #luckyshop_form,
 #cryp_form,
 #everad_form_params,

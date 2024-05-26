@@ -213,7 +213,7 @@ a.knopka:active {
   background: #980f00
 }
 
-#order_form input,
+/*#order_form input,*/
 #lucky_form input,
 .order_block input
 {
@@ -224,6 +224,6 @@ a.knopka:active {
   line-height: 1.8;
 }
 
-#order_form .submit-roulette {
-  justify-content: center;
-}
+/*#order_form .submit-roulette {*/
+/*  justify-content: center;*/
+/*}*/

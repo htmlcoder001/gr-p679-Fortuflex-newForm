@@ -122,9 +122,9 @@
                                     display: none;
                                 }
 
-                                #order_form {
+                                /*#order_form {
                                     margin-top: -80px !important;
-                                }
+                                }*/
                                 .order_block img {
                                     width: 100% !important;
                                     max-width: 300px !important;
