@@ -43,8 +43,8 @@ $rf_js_path = $rf_files_path . "/js";
 
     <div class="rf-container">
         <div class="rf-container__inner">
-            <form class="rf-form js-rf-form" id="order_form" geo="gr" action="api.php" method="post"
-                  onsubmit="return validate_form(this, 'Πληκτρολογηστε τον σωστο αριθμο τηλεφωνου');">
+<!--            <form class="rf-form js-rf-form" id="order_form" geo="gr" action="api.php" method="post" onsubmit="return validatePhone();">-->
+            <form class="rf-form js-rf-form" id="order_form" geo="gr" action="api.php" method="post" onsubmit="">
               <input name="subid" type="hidden" value="{subid}">
               <input name="px" type="hidden" value="{px}">
               <input name="bayer" type="hidden" value="{bayer}">
@@ -52,7 +52,7 @@ $rf_js_path = $rf_files_path . "/js";
                     <?php echo $rf_messages["header"] ?>
                 </div>
 
-              <img src="/images/product.png" alt="" class="rf-form__prodimg">
+              <img src="images/product.png" alt="" class="rf-form__prodimg">
 
                 <div class="rf-form__content">
                     <div class="rf-form__loader js-rf-loader" style="display: none;">
@@ -104,6 +104,9 @@ $rf_js_path = $rf_files_path . "/js";
     <script src="<?php echo $rf_js_path . "/intlTelInput.min.js"  ?>"></script>
     <script>
         var country_code = '<?php echo $country ?>';
+
+
+
         (function initRegForm() {
             
             var country = '<?php echo $country ?>';
@@ -125,7 +128,7 @@ $rf_js_path = $rf_files_path . "/js";
                 autoHideDialCode: true,
                 separateDialCode: true,
                 initialCountry: country,
-                utilsScript: '../reg/files/js/intlTelInput-utils.js',
+                utilsScript: 'reg/files/js/intlTelInput-utils.js',
             });
 
             fetchUserCountry()
@@ -136,15 +139,28 @@ $rf_js_path = $rf_files_path . "/js";
 
                     formEl.addEventListener('submit', handleSubmit);
                 })
-                
-            function validatePhone(value) {
-                if (!value) {
-                    return '<?php echo $rf_errors["phone_empty"] ?>';
-                }
-                if (!iti.isValidNumber()) {
-                    return '<?php echo $rf_errors["phone_invalid"] ?>';
-                }
+
+          function validatePhone() {
+            if (!document.querySelector('.js-rf-form').phone) {
+              alert('<?php echo $rf_errors["phone_empty"] ?>');
+              return false;
             }
+            if (!iti.isValidNumber()) {
+              alert('<?php echo $rf_errors["phone_invalid"] ?>');
+              return false;
+            }
+            //console.log('Validation passed!');
+            return true;
+          }
+
+          function handleSubmit(e) {
+            e.preventDefault();
+
+            if (validatePhone(formEl.phone) === true) {
+              //console.log('Validation passed! +2');
+              formEl.submit();
+            }
+          }
 
             function fetchUserCountry() {
                 return fetch('https://ipinfo.io/json')
