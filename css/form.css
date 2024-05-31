@@ -69,10 +69,31 @@
             padding: 24px 16px;
             text-align: center;
             color: #fff;
-            border-top-right-radius: inherit;
-            border-top-left-radius: inherit;
-            background: #4f46e5;
-            display: none;
+            border-radius: 6px;
+            background: #333333;
+        }
+
+        .form-header__discount {
+          background-color: red;
+          padding: 4px 6px;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          margin: 0 auto;
+          max-width: 225px;
+        }
+        .form-header__price {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin: 12px auto 0 auto;
+        }
+        .form-header__price span:last-child {
+          opacity: 0.8;
+          text-decoration: line-through;
         }
 
         .rf-form__content {
